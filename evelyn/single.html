@@ -39,6 +39,30 @@
             background:rgba(0,0,0,.9);
             text-align:center;
         }
+        #lightbox .nav {
+            font-size:30px;
+            font-weight:bold;
+        }
+        #lightbox .nav a {
+            -webkit-transition: text-shadow 0.5s ease-in-out;
+            -mz-transition: text-shadow 0.5s ease-in-out;
+            -o-transition: text-shadow 0.5s ease-in-out;
+            -ms-transition: text-shadow 0.5s ease-in-out;
+            transition: text-shadow 0.5s ease-in-out;
+        }
+        #lightbox .nav a:hover {
+            text-shadow:-1px 0px 0px #fff;
+        }
+        .prev, .next {
+            position:absolute;
+            top:50%;
+        }
+        .prev {
+            left:10px;
+        }
+        .next {
+            right:10px;
+        }
         #lightbox p {
             text-align:right;
             color:#fff;
@@ -52,24 +76,20 @@
         #lightbox a:hover {
             text-decoration:none;
         }
-        #lightbox .nav {
-            margin:15px 0px;
-        }
-        #lightbox .nav a {
-            -webkit-transition: text-shadow 0.5s ease-in-out;
-            -mz-transition: text-shadow 0.5s ease-in-out;
-            -o-transition: text-shadow 0.5s ease-in-out;
-            -ms-transition: text-shadow 0.5s ease-in-out;
-            transition: text-shadow 0.5s ease-in-out;
-        }
-        #lightbox .nav a:hover {
-            text-shadow:-1px 0px 0px #fff;
-        }
         #lightbox img {
             max-height:90%;
             width:auto;
             vertical-align: top;
             max-width:940px;
+            border-radius:5px;
+            -webkit-border-radius:5px;
+            -moz-border-radius:5px;
+            box-shadow:0px 0px 3px #000;
+        }
+        #caption {
+            padding:10px 0px;
+            color:#fff;
+            font-size:16px;
         }
 
         @media only screen and (max-width:480px) {
@@ -239,13 +259,17 @@ $(document).ready(function(){
       // create HTML markup for lightbox window
       var lightbox =
           '<div id="lightbox">' +
-          '<div id="slideshow">' +
           '<div class="nav">' +
           '<a href="#prev" class="prev slide-nav">&leftarrow;</a>' +
           '<span>&nbsp;&nbsp;&nbsp;</span>' +
           '<a href="#next" class="next slide-nav">&rightarrow;</a>' +
-          '</div>' +
-          '<ul></ul>' +        
+          '</div>' + 
+          '<div id="slideshow">' +
+          '<ul></ul>' +
+          '<div id="caption">' +
+          'This is an image caption, telling the story of this image.' +
+          '</div>'
+          '</div>' +      
           '</div>' +
           '</div>';
       
